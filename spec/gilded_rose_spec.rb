@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), '../gilded_rose')
+require_relative '../gilded_rose'
 
 describe GildedRose do
   describe '#update_quality' do
@@ -8,5 +8,4 @@ describe GildedRose do
       expect(items[0].name).to eq 'foo'
     end
   end
-
 end
