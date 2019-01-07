@@ -2,7 +2,7 @@ require_relative '../gilded_rose'
 
 describe GildedRose do
   describe '#update_quality' do
-    context 'generic item' do
+    context 'Generic Item' do
       it 'does not change the name' do
         items = [Item.new('foo', 0, 0)]
         GildedRose.new(items).update_quality
@@ -15,10 +15,10 @@ describe GildedRose do
         expect(items[0].quality).to eq 0
       end
 
-      it 'quality cannot exceed 50' do
-        items = [Item.new('Aged Brie', 2, 50)]
+      it 'sell_in reduces by 1' do
+        items = [Item.new('foo', 2, 2)]
         GildedRose.new(items).update_quality
-        expect(items[0].quality).to eq 50
+        expect(items[0].sell_in).to eq 1
       end
 
       context 'in date' do
@@ -26,12 +26,6 @@ describe GildedRose do
           items = [Item.new('foo', 2, 2)]
           GildedRose.new(items).update_quality
           expect(items[0].quality).to eq 1
-        end
-
-        it 'sell_in reduces by 1' do
-          items = [Item.new('foo', 2, 2)]
-          GildedRose.new(items).update_quality
-          expect(items[0].sell_in).to eq 1
         end
       end
 
@@ -44,11 +38,17 @@ describe GildedRose do
       end
     end
 
-    context 'aged brie' do
+    context 'Aged Brie' do
       it 'quality increases as it gets older' do
         items = [Item.new('Aged Brie', 5, 5)]
         GildedRose.new(items).update_quality
         expect(items[0].quality).to eq 6
+      end
+
+      it 'quality cannot exceed 50' do
+        items = [Item.new('Aged Brie', 2, 50)]
+        GildedRose.new(items).update_quality
+        expect(items[0].quality).to eq 50
       end
     end
 
@@ -63,6 +63,46 @@ describe GildedRose do
         items = [Item.new('Sulfuras, Hand of Ragnaros', 5, 80)]
         GildedRose.new(items).update_quality
         expect(items[0].sell_in).to eq 5
+      end
+    end
+
+    context 'Backstage passes to a TAFKAL80ETC concert' do
+      it 'quality cannot exceed 50' do
+        items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 2, 50)]
+        GildedRose.new(items).update_quality
+        expect(items[0].quality).to eq 50
+      end
+
+      it 'increases in quality by 1 when concert further than 10 days away' do
+        items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 11, 0)]
+        GildedRose.new(items).update_quality
+        expect(items[0].quality).to eq 1
+      end
+
+      it 'increases in quality by 2 when sell_in between 6 and 10 days inclusive' do
+        items = [
+          Item.new('Backstage passes to a TAFKAL80ETC concert', 10, 10),
+          Item.new('Backstage passes to a TAFKAL80ETC concert', 6, 10)
+        ]
+        GildedRose.new(items).update_quality
+        expect(items[0].quality).to eq 12
+        expect(items[1].quality).to eq 12
+      end
+
+      it 'increases in quality by 3 when sell_in between 0 and 5 days inclusive' do
+        items = [
+          Item.new('Backstage passes to a TAFKAL80ETC concert', 5, 10),
+          Item.new('Backstage passes to a TAFKAL80ETC concert', 1, 10)
+        ]
+        GildedRose.new(items).update_quality
+        expect(items[0].quality).to eq 13
+        expect(items[1].quality).to eq 13
+      end
+
+      it 'quality drops to zero after concert' do
+        items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 0, 10)]
+        GildedRose.new(items).update_quality
+        expect(items[0].quality).to eq 0
       end
     end
   end
