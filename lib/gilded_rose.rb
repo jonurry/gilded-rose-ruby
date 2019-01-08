@@ -1,6 +1,7 @@
 require_relative 'item.rb'
 require_relative 'generic_item.rb'
 require_relative 'aged_brie.rb'
+require_relative 'sulfuras.rb'
 
 # GildedRose
 class GildedRose
