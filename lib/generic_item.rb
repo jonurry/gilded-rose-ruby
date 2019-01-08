@@ -2,10 +2,9 @@ require_relative 'item'
 
 # GenericItem
 class GenericItem < Item
-  DAILY_QUALITY_INCREMENT = -1
-  DAILY_SELL_IN_INCREMENT = -1
-
   def initialize(name, sell_in, quality)
+    @daily_quality_increment = -1
+    @daily_sell_in_increment = -1
     super(name, sell_in, quality)
   end
 
@@ -15,10 +14,10 @@ class GenericItem < Item
   end
 
   def update_quality
-    @quality += DAILY_QUALITY_INCREMENT
+    @quality += @daily_quality_increment
   end
 
   def update_sell_in
-    @sell_in += DAILY_SELL_IN_INCREMENT
+    @sell_in += @daily_sell_in_increment
   end
 end

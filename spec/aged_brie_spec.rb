@@ -1,4 +1,4 @@
-require_relative '../lib/aged_brie'
+require_relative '../lib/gilded_rose'
 
 describe AgedBrie do
   describe '#update' do

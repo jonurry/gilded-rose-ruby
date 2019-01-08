@@ -1,4 +1,4 @@
-require_relative '../lib/sulfuras'
+require_relative '../lib/gilded_rose'
 
 describe Sulfuras do
   describe '#update' do

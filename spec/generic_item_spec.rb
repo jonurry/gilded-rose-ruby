@@ -1,4 +1,4 @@
-require_relative '../lib/generic_item'
+require_relative '../lib/gilded_rose'
 
 describe GenericItem do
   describe '#update' do
