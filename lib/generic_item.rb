@@ -16,6 +16,7 @@ class GenericItem < Item
   def update_quality
     @quality += @daily_quality_increment
     @quality = 0 if @quality < 0
+    @quality = 50 if @quality > 50
   end
 
   def update_sell_in
