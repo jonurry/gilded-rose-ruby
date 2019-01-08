@@ -7,9 +7,9 @@ items = [
   GenericItem.new('Elixir of the Mongoose', 5, 7),
   Sulfuras.new('Sulfuras, Hand of Ragnaros', 0, 80),
   Sulfuras.new('Sulfuras, Hand of Ragnaros', -1, 80),
-  Item.new('Backstage passes to a TAFKAL80ETC concert', 15, 20),
-  Item.new('Backstage passes to a TAFKAL80ETC concert', 10, 49),
-  Item.new('Backstage passes to a TAFKAL80ETC concert', 5, 49),
+  BackstagePass.new('Backstage passes to a TAFKAL80ETC concert', 15, 20),
+  BackstagePass.new('Backstage passes to a TAFKAL80ETC concert', 10, 49),
+  BackstagePass.new('Backstage passes to a TAFKAL80ETC concert', 5, 49),
   # This Conjured item does not work properly yet
   GenericItem.new('Conjured Mana Cake', 3, 6), # <-- :O
 ]

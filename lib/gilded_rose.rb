@@ -2,6 +2,7 @@ require_relative 'item.rb'
 require_relative 'generic_item.rb'
 require_relative 'aged_brie.rb'
 require_relative 'sulfuras.rb'
+require_relative 'backstage_pass.rb'
 
 # GildedRose
 class GildedRose
@@ -13,13 +14,11 @@ class GildedRose
     @items.each do |item|
       if item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert'
         if item.quality > 0
-          if item.name != 'Sulfuras, Hand of Ragnaros'
-            item.update_quality
-          end
+          item.update_quality
         end
       else
         if item.quality < 50
-          item.quality = item.quality + 1
+          item.update_quality
           if item.name == 'Backstage passes to a TAFKAL80ETC concert'
             if item.sell_in < 11
               if item.quality < 50
@@ -35,14 +34,14 @@ class GildedRose
         end
       end
       if item.name != 'Sulfuras, Hand of Ragnaros'
-        item.sell_in = item.sell_in - 1
+        item.update_sell_in
       end
       if item.sell_in < 0
         if item.name != 'Aged Brie'
           if item.name != 'Backstage passes to a TAFKAL80ETC concert'
             if item.quality > 0
               if item.name != 'Sulfuras, Hand of Ragnaros'
-                item.quality = item.quality - 1
+                item.update_quality
               end
             end
           else
