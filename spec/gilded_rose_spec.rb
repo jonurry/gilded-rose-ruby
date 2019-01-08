@@ -2,20 +2,6 @@ require_relative '../lib/gilded_rose'
 
 describe GildedRose do
   describe '#update_quality' do
-    context 'Sulfuras, Hand of Ragnaros' do
-      it 'quality never changes' do
-        items = [Sulfuras.new('Sulfuras, Hand of Ragnaros', 5, 80)]
-        GildedRose.new(items).update_quality
-        expect(items[0].quality).to eq 80
-      end
-
-      it 'never has to be sold' do
-        items = [Sulfuras.new('Sulfuras, Hand of Ragnaros', 5, 80)]
-        GildedRose.new(items).update_quality
-        expect(items[0].sell_in).to eq 5
-      end
-    end
-
     context 'Backstage passes to a TAFKAL80ETC concert' do
       it 'quality cannot exceed 50' do
         items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 2, 50)]
