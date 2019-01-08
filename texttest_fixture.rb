@@ -3,7 +3,7 @@ require_relative './lib/gilded_rose'
 items = [
   # name, sell_in, quality
   GenericItem.new('+5 Dexterity Vest', 10, 20),
-  Item.new('Aged Brie', 2, 0),
+  AgedBrie.new('Aged Brie', 2, 0),
   GenericItem.new('Elixir of the Mongoose', 5, 7),
   Item.new('Sulfuras, Hand of Ragnaros', 0, 80),
   Item.new('Sulfuras, Hand of Ragnaros', -1, 80),

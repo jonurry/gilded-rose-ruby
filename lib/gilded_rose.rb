@@ -1,5 +1,6 @@
 require_relative 'item.rb'
 require_relative 'generic_item.rb'
+require_relative 'aged_brie.rb'
 
 # GildedRose
 class GildedRose
@@ -48,7 +49,7 @@ class GildedRose
           end
         else
           if item.quality < 50
-            item.quality = item.quality + 1
+            item.update_quality
           end
         end
       end
