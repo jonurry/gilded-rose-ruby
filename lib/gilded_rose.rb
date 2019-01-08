@@ -1,4 +1,5 @@
 require_relative 'item.rb'
+require_relative 'generic_item.rb'
 
 # GildedRose
 class GildedRose
