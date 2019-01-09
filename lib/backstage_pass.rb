@@ -7,10 +7,7 @@ class BackstagePass < GenericItem
   end
 
   def update_quality
-    @daily_quality_increment = calculate_quality_increment
-    @quality += @daily_quality_increment
-    @quality = 0 if @quality < 0
-    @quality = 50 if @quality > 50
+    super(calculate_quality_increment)
   end
 
   private
