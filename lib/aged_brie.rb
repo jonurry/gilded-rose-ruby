@@ -1,6 +1,6 @@
 require_relative 'generic_item'
 
-DAILY_QUALITY_INCREMENT = 1
+AGED_BRIE_DAILY_QUALITY_INCREMENT = 1
 
 # AgedBrie
 class AgedBrie < GenericItem
@@ -9,6 +9,6 @@ class AgedBrie < GenericItem
   end
 
   def update_quality
-    super(DAILY_QUALITY_INCREMENT)
+    super(AGED_BRIE_DAILY_QUALITY_INCREMENT)
   end
 end
