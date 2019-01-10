@@ -1,10 +1,10 @@
 require_relative '../lib/generic_item.rb'
 
-QUALITY_IS_ALWAYS_80 = 80
-
 # Sulfuras
 module Sulfuras
   include GenericItem
+
+  QUALITY_IS_ALWAYS_80 = 80
 
   def update_quality
     @quality = QUALITY_IS_ALWAYS_80

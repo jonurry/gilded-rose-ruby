@@ -1,9 +1,9 @@
-IN_DATE_QUALITY_INCREMENT = -1
-OUT_OF_DATE_QUALITY_INCREMENT = -2
-SELL_IN_INCREMENT = -1
-
 # GenericItem
 module GenericItem
+  IN_DATE_QUALITY_INCREMENT = -1
+  OUT_OF_DATE_QUALITY_INCREMENT = -2
+  SELL_IN_INCREMENT = -1
+
   def update
     update_quality
     update_sell_in
