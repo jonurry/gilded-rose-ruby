@@ -1,12 +1,10 @@
-require_relative 'generic_item'
+require_relative '../lib/generic_item.rb'
 
 AGED_BRIE_DAILY_QUALITY_INCREMENT = 1
 
 # AgedBrie
-class AgedBrie < GenericItem
-  def initialize(name, sell_in, quality)
-    super(name, sell_in, quality)
-  end
+module AgedBrie
+  include GenericItem
 
   def update_quality
     super(AGED_BRIE_DAILY_QUALITY_INCREMENT)

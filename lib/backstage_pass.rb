@@ -1,10 +1,8 @@
-require_relative 'generic_item'
+require_relative '../lib/generic_item.rb'
 
 # BackstagePass
-class BackstagePass < GenericItem
-  def initialize(name, sell_in, quality)
-    super(name, sell_in, quality)
-  end
+module BackstagePass
+  include GenericItem
 
   def update_quality
     super(calculate_quality_increment)

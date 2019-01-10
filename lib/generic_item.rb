@@ -1,15 +1,9 @@
-require_relative 'item'
-
 IN_DATE_QUALITY_INCREMENT = -1
 OUT_OF_DATE_QUALITY_INCREMENT = -2
 SELL_IN_INCREMENT = -1
 
 # GenericItem
-class GenericItem < Item
-  def initialize(name, sell_in, quality)
-    super(name, sell_in, quality)
-  end
-
+module GenericItem
   def update
     update_quality
     update_sell_in
